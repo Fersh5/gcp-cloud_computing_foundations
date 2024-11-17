@@ -3,7 +3,7 @@
     GCP - Cloud Computing Foundatios
 </h1>
 
-Este repositorio esta hecho la con el fin de fungir como guía para el curso [Cloud Computing Foundations](https://www.cloudskillsboost.google/paths/36) de la platafotma [Google Cloud Skills Boost](https://www.cloudskillsboost.google/).
+Este repositorio esta hecho la con el fin de fungir como guía para el curso [Cloud Computing Foundations](https://www.cloudskillsboost.google/paths/36) de la plataforma [Google Cloud Skills Boost](https://www.cloudskillsboost.google/).
 
 Este curso está diseñado para personas sin experiencia previa en computación en la nube, macrodatos o aprendizaje automático, y tiene como objetivo enseñar conceptos básicos y el papel de Google Cloud.
 
@@ -19,7 +19,7 @@ Este curso está diseñado para personas sin experiencia previa en computación 
 - Usa Google Cloud para compilar tus apps
 
 ## 2. Infrastructure in Google Cloud
-- ¿Donde almaceno estos elementos?
+- ¿Dónde almaceno estos elementos?
 - Existe una API para eso
 - No se puede proteger la nube ¿cierto?
 
