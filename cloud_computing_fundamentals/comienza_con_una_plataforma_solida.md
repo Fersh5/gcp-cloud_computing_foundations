@@ -149,3 +149,91 @@ En este lab, **"A Tour of Google Cloud Hands-on Labs"**, practicarás con la con
 - Accederás a la **consola de Google Cloud** utilizando **credenciales específicas**.
 
 Este lab te ayudará a familiarizarte con la consola de Google Cloud y a comenzar a interactuar con sus herramientas y servicios.
+
+## APIs de Google Cloud
+
+- **API (Interfaz de Programación de Aplicaciones)**:
+  - Permite acceder a Google Cloud mediante una interfaz limpia y definida.
+  - Los desarrolladores estructuran su software para que la interfaz quede oculta y no sea afectada por cambios en la implementación subyacente.
+
+- **Ventajas de usar APIs**:
+  - Las implementaciones de servicios pueden cambiar, siempre que la interfaz de la API se mantenga intacta.
+  - Se evitan errores y la fragilidad del software al reutilizar las interfaces predefinidas.
+
+- **Explorador de APIs de Google**:
+  - Herramienta en la consola de Google Cloud que muestra las APIs disponibles y sus versiones.
+  
+- **Bibliotecas cliente de Google Cloud**:
+  - Google proporciona bibliotecas cliente para facilitar la integración con APIs de Google Cloud.
+  - Lenguajes disponibles: Java, Python, PHP, C#, Go, Node.js, Ruby, C++.
+  - Estas bibliotecas permiten usar APIs sin necesidad de programar desde cero.
+
+## Acceso a Google Cloud mediante la App Móvil
+
+- **Aplicación Móvil en Nube**:
+  - Permite administrar servicios de Google Cloud desde un dispositivo móvil.
+  - Es un recurso conveniente y sin costo adicional.
+
+- **Funcionalidades principales**:
+  - **Instancias de Compute Engine**: Iniciar, detener y acceder por SSH.
+  - **Cloud SQL**: Detener e iniciar instancias.
+  - **App Engine**: Administrar aplicaciones, visualizar errores, revertir implementaciones y modificar divisiones de tráfico.
+  
+- **Monitoreo y facturación**:
+  - Brinda datos de facturación actualizados y alertas de presupuesto.
+  - Configuración de gráficos personalizables para métricas clave (uso de CPU, red, solicitudes por segundo, errores de servidor).
+  
+- **Administración de incidentes y alertas**: Permite gestionar alertas e incidentes directamente desde la app.
+
+- **Enlace para descarga**: La aplicación está disponible en [cloud.google.com/console-app](https://cloud.google.com/console-app).
+
+## Cuestionario
+
+1. **¿Qué herramienta de línea de comandos forma parte del SDK de Cloud?**
+   - ❌ SSH
+   - **✅ gsutil**
+   - ❌ Bash
+   - ❌ Git
+
+---
+
+2. **¿Qué herramienta de facturación se diseñó para prevenir el consumo excesivo de los recursos debido a errores o ataques maliciosos?**
+   - **✅ Cuotas**
+   - ❌ Alertas
+   - ❌ Informes
+   - ❌ Presupuestos
+
+---
+
+3. **¿En qué entidad de la jerarquía de recursos de Google Cloud se organizan los recursos?**
+   - ❌ Carpetas
+   - ❌ Nodo de la organización
+   - **✅ Proyectos**
+   - ❌ Zonas
+
+---
+
+4. **¿Qué identificador de proyecto no necesita ser único a escala global?**
+   - **✅ Nombre del proyecto**
+   - ❌ ID del proyecto
+   - ❌ Número del proyecto
+
+---
+
+5. **¿Cuál es el propósito de las APIs que ofrecen los distintos servicios de Google Cloud?**
+   - **✅ Las APIs permiten escribir código para controlar los servicios de Google Cloud.**
+   - ❌ Las APIs proporcionan acceso a la consola de Google Cloud mediante una sencilla interfaz gráfica de usuario basada en la Web.
+   - ❌ Las APIs proporcionan descuentos mensuales en los precios.
+   - ❌ Las APIs permiten el acceso físico a los centros de datos.
+
+## Resumen del Segundo Módulo del Curso Google Cloud Computing Foundations
+
+En este módulo, cubriste los siguientes puntos clave:
+
+1. **Exploración de la consola de Google Cloud.**
+2. **Uso de proyectos como base para habilitar y usar los servicios de Google Cloud.**
+3. **Opciones de facturación disponibles en Google Cloud.**
+4. **Instalación y configuración del SDK de Cloud.**
+5. **Casos de uso de Cloud Shell y su editor de códigos.**
+6. **Funcionamiento de las APIs.**
+7. **Administración de servicios de Google Cloud en dispositivos móviles.**

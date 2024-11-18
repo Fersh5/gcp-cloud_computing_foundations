@@ -70,28 +70,34 @@ La infraestructura global de Google Cloud tiene más de 100 nodos de almacenamie
 
 ## Cuestionario
 1. **¿Cuál es uno de los atributos fundamentales de la computación en la nube?**
-   - Los clientes solo obtienen recursos de procesamiento cuando el proveedor de servicios en la nube tiene disponibilidad.
-   - **Los clientes acceden a los recursos de procesamiento por Internet, desde cualquier lugar.** ✅
-   - No se puede aumentar ni reducir verticalmente la escala de los recursos de procesamiento.
-   - Los clientes pagan por los recursos de procesamiento asignados independientemente.
+   - ❌ Los clientes solo obtienen recursos de procesamiento cuando el proveedor de servicios en la nube tiene disponibilidad.
+   - **✅ Los clientes acceden a los recursos de procesamiento por Internet, desde cualquier lugar.** ✅
+   - ❌ No se puede aumentar ni reducir verticalmente la escala de los recursos de procesamiento.
+   - ❌ Los clientes pagan por los recursos de procesamiento asignados independientemente.
+
+---
 
 2. **¿Qué servicio proporciona capacidades de procesamiento, almacenamiento y redes sin procesar, organizadas de manera virtual en recursos que son similares a los centros de datos físicos?**
-   - FaaS
-   - **IaaS** ✅
-   - PaaS
-   - SaaS
+   - ❌ FaaS
+   - **✅ IaaS** 
+   - ❌ PaaS
+   - ❌ SaaS
+
+---
 
 3. **¿Dónde se implementan los recursos de Google Cloud?**
-   - Multirregión
-   - Ubicación
-   - **Zona** ✅
-   - Región
+   - ❌ Multirregión
+   - ❌ Ubicación
+   - **✅ Zona**
+   - ❌ Región
+
+---
 
 4. **¿Cuál es la nube completamente automatizada y elástica de la tercera ola que se compone de una combinación de servicios automatizados y datos escalables?**
-   - Colocación
-   - Local
-   - Centro de datos virtualizado
-   - **Arquitectura basada en contenedores** ✅
+   - ❌ Colocación
+   - ❌ Local
+   - ❌ Centro de datos virtualizado
+   - **✅ Arquitectura basada en contenedores**
 
 ## Resumen del Primer Módulo - Google Cloud Computing Foundations
 
