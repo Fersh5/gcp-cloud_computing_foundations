@@ -417,3 +417,212 @@ Este laboratorio te permitirá explorar las funciones básicas de Cloud SQL para
 
 Para más detalles, busca el lab titulado **“Cloud SQL para MySQL: Qwik Start”** en la plataforma de Google Cloud Skills Boost.
 
+## **Cloud Spanner Como Servicio Administrado**
+
+### **Características Principales de Cloud Spanner**
+Cloud Spanner es una base de datos relacional completamente administrada diseñada para manejar aplicaciones críticas que requieren escalabilidad global y coherencia sólida.
+
+---
+
+### **¿Qué Hace Especial a Cloud Spanner?**
+
+1. **Escalabilidad Horizontal y Vertical:**
+   - **Vertical:** Incrementa o reduce los recursos de una sola instancia.
+   - **Horizontal:** Añade o elimina servidores para manejar mayores cargas de trabajo.
+
+2. **Coherencia Sólida Global:**
+   - Ofrece transacciones consistentes en múltiples regiones a través de replicación síncrona.
+
+3. **Altas Tasas de Operaciones:**
+   - Diseñado para soportar decenas de miles de operaciones de lectura y escritura por segundo.
+
+4. **Alta Disponibilidad:**
+   - Los datos se replican automáticamente en múltiples regiones, asegurando disponibilidad incluso durante fallas regionales.
+
+---
+
+### **Casos de Uso**
+Cloud Spanner es ideal para aplicaciones que requieren:
+- Un sistema de bases de datos relacionales compatible con SQL, incluyendo índices secundarios y uniones.
+- Procesos que involucren metadatos a gran escala.
+- Industrias como publicidad, finanzas y tecnología de marketing que gestionan datos críticos.
+
+---
+
+### **Cómo Funciona Cloud Spanner**
+- **Replicación Síncrona:**
+  - Los datos se copian instantánea y automáticamente en varias regiones para garantizar coherencia y accesibilidad.
+- **Disponibilidad Multirregional:**
+  - Si una región falla, el servicio entrega los datos desde otra región sin interrupciones.
+
+---
+
+### **Beneficios Clave**
+- Escalabilidad global con SQL estándar.
+- Resiliencia para aplicaciones críticas.
+- Capacidad para manejar cargas intensivas de transacciones y consultas.
+
+Cloud Spanner está respaldado por la tecnología que impulsa las aplicaciones críticas de Google, haciendo de esta solución una opción confiable y robusta para grandes empresas y organizaciones.
+
+## **Servicios NoSQL Administrados de Google Cloud**
+
+Google ofrece dos opciones de bases de datos NoSQL completamente administradas para satisfacer diferentes necesidades de escalabilidad, latencia y estructura de datos.
+
+---
+
+### **Opciones Disponibles**
+
+1. **Firestore:**
+   - **Tipo:** Almacén de documentos NoSQL.
+   - **Características:**
+     - Completamente administrado y sin servidores.
+     - Soporta transacciones ACID, lo que garantiza la consistencia de los datos.
+     - Ideal para aplicaciones móviles y web que requieren un almacenamiento flexible y escalable.
+
+2. **Cloud Bigtable:**
+   - **Tipo:** Base de datos NoSQL de columna amplia.
+   - **Características:**
+     - Escala a petabytes de datos.
+     - Ofrece latencia de escritura extremadamente baja, ideal para aplicaciones de alta carga de trabajo y análisis en tiempo real.
+     - Utilizado para aplicaciones que necesitan gestionar grandes volúmenes de datos de series temporales, registros de eventos, o datos relacionados con IoT.
+
+## **Firestore: Base de Datos NoSQL de Documentos**
+
+Firestore es una base de datos NoSQL de documentos completamente administrada, diseñada para el desarrollo de aplicaciones móviles, web y de servidores con un enfoque en flexibilidad, escalabilidad y rendimiento.
+
+---
+
+### **Características Principales:**
+
+1. **Modelo de Datos:**
+   - Los datos se almacenan como **documentos** organizados en **colecciones**.
+   - Los documentos pueden incluir objetos anidados y **subcolecciones**.
+
+2. **Consultas Eficientes:**
+   - Realiza búsquedas para recuperar documentos individuales o todos los documentos en una colección que cumplan con criterios específicos.
+   - Las búsquedas pueden combinar **filtros en cadena** y opciones de ordenamiento.
+   - **Índices predeterminados:** Aseguran que el rendimiento de las consultas dependa del tamaño del conjunto de resultados y no del conjunto de datos completo.
+
+3. **Sincronización en Tiempo Real:**
+   - Los datos se sincronizan automáticamente en todos los dispositivos conectados.
+   - Funciona sin conexión gracias al almacenamiento en caché local y sincroniza los cambios cuando el dispositivo vuelve a estar en línea.
+
+4. **Escalabilidad y Fiabilidad:**
+   - Escalabilidad horizontal para soportar aplicaciones de alto tráfico.
+   - Replicación de datos multirregional automática para alta disponibilidad.
+   - Garantías de **coherencia sólida** y soporte para transacciones y operaciones atómicas por lotes.
+
+5. **Sin Servidor:**
+   - Completamente administrado, lo que elimina la necesidad de configurar o mantener servidores.
+
+---
+
+### **Casos de Uso:**
+- Aplicaciones que requieren sincronización en tiempo real (e.g., chats, colaboración en equipo).
+- Aplicaciones que necesitan acceder a datos desde múltiples dispositivos con sincronización offline.
+- Almacenamiento de datos estructurados, con consultas rápidas y flexibles.
+
+Firestore aprovecha la infraestructura de Google Cloud para proporcionar una experiencia de desarrollo optimizada, combinando rendimiento, confiabilidad y facilidad de uso.
+
+## **Bigtable como una opcion NoSQL**
+
+Cloud Bigtable es la base de datos NoSQL de Google diseñada para manejar macrodatos con alta capacidad de procesamiento y latencia extremadamente baja. Es el mismo servicio que impulsa aplicaciones internas de Google como Búsqueda, Analytics, Maps y Gmail.
+
+---
+
+### **Características Principales:**
+
+1. **Capacidad para Macrodatos:**
+   - Diseñado para cargas de trabajo masivas, con más de **1 TB de datos estructurados o semiestructurados**.
+   - Ideal para **series temporales** o datos con orden semántico natural.
+
+2. **Altamente Escalable:**
+   - Escala horizontalmente para manejar flujos masivos de datos en tiempo real o por lotes.
+   - Maneja grandes cantidades de datos con baja latencia, ideal para aplicaciones analíticas y operativas.
+
+3. **Interoperabilidad:**
+   - Compatible con APIs populares como las de HBase.
+   - Integración con herramientas de procesamiento como **Dataflow**, **Spark** y **Storm** para procesamiento en tiempo real.
+   - Permite operaciones por lotes con **Hadoop MapReduce**, **Dataflow** o **Spark**.
+
+4. **Análisis y Machine Learning:**
+   - Adecuado para datos utilizados en análisis de macrodatos y **algoritmos de aprendizaje automático (ML)**.
+
+5. **Sin Transacciones Relacionales:**
+   - Enfocado en cargas de trabajo de datos NoSQL que no requieren la semántica transaccional compleja de bases de datos relacionales.
+
+6. **Alto Rendimiento:**
+   - Procesamiento asíncrono por lotes o síncrono en tiempo real.
+   - Integración con servicios downstream para análisis adicionales o almacenamiento.
+
+---
+
+### **Casos de Uso:**
+- **Internet de las Cosas (IoT):** Manejo de flujos de datos continuos provenientes de dispositivos.
+- **Estadísticas de Usuarios:** Generación de reportes y análisis de comportamiento.
+- **Finanzas:** Análisis de datos financieros y toma de decisiones en tiempo real.
+- **Aplicaciones Analíticas:** Paneles interactivos y visualización de datos.
+- **Aplicaciones de Machine Learning:** Entrenamiento y análisis basados en datos masivos.
+
+---
+
+### **Integración con Otros Servicios:**
+Aunque este módulo no cubre **BigQuery**, se menciona como complemento de Bigtable para análisis interactivo y consultas de macrodatos. BigQuery es ideal para análisis avanzados, mientras que Bigtable maneja el almacenamiento y procesamiento inicial.
+
+Bigtable es una opción poderosa para proyectos que requieren un manejo eficiente de datos a gran escala, con flexibilidad y rendimiento garantizados por la infraestructura de Google Cloud.
+
+## **Cuestionario**
+
+### **1. ¿Qué servicio de almacenamiento es el más adecuado para datos no estructurados?**
+- ❌ Cloud Spanner  
+- ❌ Cloud Bigtable  
+- ✅ **Cloud Storage**  
+- ❌ Firestore  
+
+**Respuesta correcta.**
+
+---
+
+### **2. Google Cloud ofrece dos servicios administrados de bases de datos relacionales. ¿Cuáles son?**
+- ❌ Firestore  
+- ✅ **Cloud SQL**  
+- ✅ **Cloud Spanner**  
+- ❌ Cloud Bigtable  
+
+---
+
+### **3. Está buscando una solución de almacenamiento no estructurado para archivar documentos a los que tal vez nunca vuelva a acceder. ¿Qué clase de almacenamiento de Cloud Storage es la mejor opción?**
+- ❌ Coldline Storage  
+- ❌ Nearline Storage  
+- ❌ Standard Storage  
+- ✅ **Archive Storage**  
+
+---
+
+### **4. ¿Qué solución de almacenamiento es una base de datos NoSQL con una escala de petabytes?**
+- ❌ Cloud Spanner  
+- ❌ Firestore  
+- ✅ **Cloud Bigtable**    
+
+## Resumen del Módulo 4: Opciones de Almacenamiento en Google Cloud
+
+En este módulo, exploraste las diferentes opciones de almacenamiento disponibles en Google Cloud, incluyendo:
+
+- **Cloud Storage**: Para datos no estructurados como documentos, imágenes y archivos de audio.
+- **Cloud SQL y Cloud Spanner**: Bases de datos relacionales.
+- **Firestore y Bigtable**: Bases de datos NoSQL.
+
+## Diferencias entre Datos Estructurados y No Estructurados
+- **Datos No Estructurados**: Información no tabular, como videos, fotos o archivos de audio.
+- **Datos Estructurados**: Información almacenada en tablas con filas y columnas.
+
+## Principales Usos de Cloud Storage
+- Almacenar **BLOBs** (objetos binarios grandes) para contenido en línea.
+- Archivar documentos o realizar copias de seguridad.
+- Almacenar resultados intermedios en flujos de procesamiento.
+
+## Opciones NoSQL vs. Relacionales
+- Las bases de datos relacionales (como **Cloud SQL** y **Cloud Spanner**) son ideales para datos estructurados.
+- Las bases de datos NoSQL (como **Firestore** y **Bigtable**) son adecuadas para datos no estructurados y cargas de trabajo masivas.
+
+Con este conocimiento, ahora puedes seleccionar la solución de almacenamiento adecuada según tus necesidades en la nube.
