@@ -129,3 +129,161 @@ En este laboratorio práctico, obtendrás experiencia práctica con **Cloud Endp
 Proporcionar experiencia práctica en:
 - Configuración y despliegue de APIs con **Cloud Endpoints**.
 - Monitoreo y gestión de una API para garantizar un uso eficiente y controlado.
+
+
+## Administración de APIs con Apigee
+
+### Descripción
+**Apigee** es una plataforma de Google Cloud diseñada para desarrollar y administrar proxies de API. A diferencia de **Cloud Endpoints**, Apigee está orientada a abordar necesidades empresariales específicas.
+
+### Enfoque principal
+- Gestiona problemas empresariales como:
+  - Límite de frecuencia.
+  - Cuotas de uso.
+  - Analítica avanzada de APIs.
+
+### Características clave
+1. **Independencia del backend:**
+   - Los servicios de backend no necesitan estar alojados en Google Cloud.
+2. **Soporte para aplicaciones heredadas:**
+   - Ayuda a desglosar aplicaciones monolíticas grandes en microservicios de manera progresiva.
+   - Facilita la migración y eventual retiro de aplicaciones heredadas.
+
+### Casos de uso
+- Empresas que brindan servicios de software a otras organizaciones.
+- Migración progresiva hacia arquitecturas modernas basadas en microservicios.
+
+## Pub/Sub
+
+### Descripción
+**Pub/Sub** es un servicio de mensajería y API asíncrono de Google Cloud que admite arquitecturas distribuidas orientadas a los mensajes. Es ideal para manejar grandes volúmenes de datos de múltiples transmisiones y dispositivos.
+
+### Características principales
+1. **Diseño distribuido y escalable:**
+   - Soporta transmisiones masivas de datos desde dispositivos IoT, videojuegos y aplicaciones.
+2. **Entrega garantizada:**
+   - Asegura al menos una entrega de mensajes a las aplicaciones suscriptoras.
+3. **Global y seguro:**
+   - Servicio global predeterminado con encriptación de extremo a extremo.
+4. **Arquitectura desacoplada:**
+   - Los publicadores y suscriptores están completamente separados.
+
+### Componentes clave
+- **Temas:**
+  - Recurso con nombre donde los publicadores envían mensajes, similar a una antena de radio.
+  - Puede haber:
+    - Cero, uno o más publicadores.
+    - Cero, uno o más suscriptores.
+- **Publicadores y suscriptores:**
+  - Los publicadores envían mensajes a temas.
+  - Los suscriptores reciben mensajes de los temas para procesarlos.
+
+### Ejemplo práctico
+- **Tema: Recursos Humanos (RRHH):**
+  - Evento: Contratación de un nuevo empleado.
+  - Publicadores: Fuentes de datos de empleados (empleados de tiempo completo y contratistas).
+  - Suscriptores: Sistemas downstream como servicios de directorio, activación de insignias y aprovisionamiento de cuentas.
+
+### Integraciones
+1. **Dataflow:**
+   - Canaliza y transforma mensajes de Pub/Sub para enviarlos a almacenes de datos como **BigQuery**.
+2. **Herramientas de análisis y visualización:**
+   - **Looker/Looker Studio**: Para supervisar resultados.
+   - **Vertex AI**: Ayuda con análisis predictivo y descubrimiento de estadísticas empresariales.
+3. **Encadenamiento de temas:**
+   - Eventos de Pub/Sub pueden transferirse de un tema a otro.
+
+### Casos de uso
+- Transferencia de datos desde sensores IoT.
+- Gestión de eventos masivos en tiempo real.
+- Arquitecturas desacopladas con múltiples fuentes y receptores de datos.
+
+## Laboratorio: Pub/Sub: Qwik Start - Python
+
+### Objetivo
+Aprender a trabajar con **Pub/Sub** en Google Cloud usando la biblioteca cliente de Python. Este laboratorio cubre desde la creación de temas y suscripciones hasta la publicación y extracción de mensajes.
+
+### Actividades del laboratorio
+
+1. **Crear y enumerar un tema en Pub/Sub**
+   - **Crear un tema:**
+     - Aprende a definir un recurso llamado **tema** donde se enviarán los mensajes.
+   - **Enumerar temas:**
+     - Listar todos los temas existentes en el proyecto.
+
+2. **Crear y enumerar una suscripción de Pub/Sub**
+   - **Crear una suscripción:**
+     - Vincular un suscriptor a un tema para recibir mensajes publicados.
+   - **Enumerar suscripciones:**
+     - Listar todas las suscripciones vinculadas a los temas.
+
+3. **Publicar mensajes para un tema**
+   - **Publicar mensajes:**
+     - Enviar mensajes al tema usando la biblioteca cliente de Python.
+   - **Ejemplo práctico:**
+     - Publicar datos como eventos simulados o mensajes personalizados.
+
+4. **Usar un suscriptor de extracción**
+   - **Extraer mensajes:**
+     - Leer y procesar mensajes individuales desde un tema utilizando un suscriptor.
+   - **Validar resultados:**
+     - Verificar que los mensajes enviados desde el publicador son recibidos correctamente.
+
+### Herramientas y tecnologías utilizadas
+- **Python:** Biblioteca cliente de Pub/Sub.
+- **Google Cloud Console:** Para la configuración inicial y supervisión.
+- **Pub/Sub:** Servicio principal de mensajería.
+
+### Resultado esperado
+Al finalizar el laboratorio, serás capaz de:
+- Configurar y administrar temas y suscripciones en Pub/Sub.
+- Publicar y extraer mensajes de manera efectiva.
+- Integrar Pub/Sub en aplicaciones de Python para manejar flujos de datos asíncronos.
+
+## Cuestionario
+
+**¿Qué plataforma para desarrollar y administrar proxies de API se enfoca específicamente en los problemas empresariales, como el límite de frecuencia, las cuotas y la analítica?**  
+- **✅ Apigee Edge**
+- ❌ API de REST  
+- ❌ Pub/Sub  
+- ❌ Cloud Endpoints  
+
+
+---
+
+**¿Qué significa API?**  
+- **✅ Interfaz de programación de aplicaciones**
+- ❌ Interfaz de programación asíncrona  
+- ❌ Interfaz de programación aplicada  
+- ❌ Interfaz de programación artificial  
+
+---
+
+**¿Cuál de estas afirmaciones sobre Pub/Sub es verdadera?**  
+- ❌ Pub/Sub no está encriptado.  
+- ❌ Pub/Sub requiere aprovisionamiento.  
+- **✅ Las APIs de Pub/Sub son de código abierto.**
+- ❌ Pub/Sub es regional de forma predeterminada.  
+
+---
+
+**¿Qué sistema de administración de APIs es compatible con aplicaciones que se ejecutan en App Engine, Google Kubernetes Engine y Compute Engine?**  
+- **✅ Cloud Endpoints**
+- ❌ Apigee  
+- ❌ Pub/Sub  
+- ❌ API de REST  
+
+## Resumen del Módulo 5: Google Cloud Computing Foundations
+
+En este módulo se cubrieron los siguientes temas:
+
+1. **Propósito y beneficios de las APIs**:
+   - Se exploraron las **interfaces de programación de aplicaciones (APIs)** y cómo simplifican la comunicación entre recursos de software diferentes y aislados.
+
+2. **Comparación entre Cloud Endpoints y Apigee**:
+   - **Cloud Endpoints**: Ideal para implementar y administrar APIs en Google Cloud, con bajo costo, baja latencia y alto rendimiento.
+   - **Apigee**: Orientado a soluciones empresariales, abordando problemas como límites de frecuencia, cuotas y analíticas avanzadas. También se utiliza para desglosar aplicaciones heredadas y facilitar la transición a microservicios.
+
+3. **Introducción a Pub/Sub**:
+   - Pub/Sub es una herramienta de **mensajería distribuida** diseñada para arquitecturas distribuidas y orientadas a mensajes a gran escala.
+   - Facilita el manejo de grandes volúmenes de datos transmitidos de manera asíncrona desde múltiples fuentes, garantizando fiabilidad y seguridad en la entrega de mensajes.
