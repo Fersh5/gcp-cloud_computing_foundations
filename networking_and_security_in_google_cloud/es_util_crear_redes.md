@@ -38,7 +38,7 @@ Este módulo, titulado **"It helps to network"**, te introduce a las herramienta
    - Realizarás un **cuestionario corto** para evaluar lo aprendido.
    - Revisión de los conceptos clave cubiertos en el módulo.
 
-## **Introducción a las Redes en la Nube**
+## **Herramientas de Redes en la Nube**
 
 
 ### **Conceptos Básicos de Redes**
@@ -314,9 +314,7 @@ Google Cloud ofrece una infraestructura de red privada y global con herramientas
 - Las rutas en una VPC facilitan el flujo interno del tráfico sin configuración de routers físicos.
 - Los firewalls se administran con reglas personalizables, lo que proporciona una **seguridad robusta** y **flexible** en la red de Google Cloud. 🌐🔒
 
-## **Uso de Múltiples VPCs en Google Cloud**
-
----
+## **Redes de VPC Múltiples en Google Cloud**
 
 ### **Conectividad entre VPCs en Google Cloud**
 - **VPCs** pertenecen a proyectos individuales de Google Cloud.
@@ -393,9 +391,7 @@ Aplicar conocimientos sobre redes de VPC múltiples mediante un ejercicio práct
 - Despliegue y configuración de máquinas virtuales.
 - Análisis y pruebas de conectividad en entornos de múltiples VPC.
 
-## **Lab Práctico: Control de Acceso a una VPC**
-
----
+## **Lab: Redes de VPC Como Controlar el Acceso**
 
 ### **Objetivo del Lab:**
 Practicar el control de acceso a una VPC utilizando servidores web, reglas de firewall y roles de IAM.
@@ -476,8 +472,6 @@ La elección entre estas opciones depende de factores como la seguridad, el anch
 
 ## **Opciones del Balanceo de Cargas en Google Cloud**
 
----
-
 ### **¿Qué es un Balanceador de Cargas?**
 - **Función Principal:** Distribuir el tráfico de usuarios entre varias instancias de una aplicación.
 - **Beneficio:** Reduce el riesgo de problemas de rendimiento al distribuir la carga de manera uniforme.
@@ -545,8 +539,6 @@ Google Cloud ofrece una gama completa de balanceadores de cargas para manejar di
 
 ## **Lab: Configuración de un Balanceador de Cargas HTTP con Google Cloud Armor**
 
----
-
 ## **Objetivo del Lab:**
 - Configurar un balanceador de cargas HTTP.
 - Implementar Google Cloud Armor para mitigar ataques de denegación de servicio distribuido (DDoS).
@@ -597,3 +589,72 @@ Google Cloud ofrece una gama completa de balanceadores de cargas para manejar di
 
 ### **Beneficio Principal:**
 Este lab enseña a proteger servicios en Google Cloud usando balanceadores de cargas HTTP y Cloud Armor, ayudando a mantener la seguridad y el rendimiento de las aplicaciones frente a posibles ataques DDoS.
+
+## Cuestionario
+
+### 1. ¿Qué solución de conectividad proporciona una conexión directa a Google?  
+- ❌ Intercambio de tráfico por proveedores  
+- **✅ Interconexión dedicada**   
+- ❌ Interconexión de socio  
+- ❌ Intercambio de tráfico directo  
+
+---
+
+### 2. ¿Cuál de los siguientes términos indica dónde la red de Google se conecta al resto de Internet?  
+- ❌ Dirección IP  
+- **✅ Punto de presencia (PoP)**   
+- ❌ Zona  
+- ❌ Región  
+
+---
+
+### 3. ¿Qué se utiliza para reenviar tráfico de una instancia a otra en una misma red, entre subredes o incluso entre zonas de Google Cloud y no requiere una dirección IP externa?  
+- ❌ Subred  
+- ❌ Balanceador de cargas  
+- **✅ Tabla de enrutamiento**   
+- ❌ Firewall  
+
+---
+
+### 4. ¿Cuál de estas opciones elegiría si necesitara balanceo de cargas interregional para una aplicación web?  
+- ❌ Balanceo de cargas del proxy de SSL  
+- ❌ Balanceo de cargas del proxy de TCP  
+- ❌ Balanceo de cargas HTTP(S) interno  
+- **✅ Balanceo de cargas de HTTP(S)**   
+
+---
+
+### 5. Seleccione la afirmación que es verdadera.  
+- ❌ Las VPC son regionales y las subredes son zonales.  
+- **✅ Las VPC son globales y las subredes son regionales.**   
+- ❌ Las VPC y las subredes son globales.  
+- ❌ Las VPC son regionales. Las subredes no se usan en Google Cloud.  
+
+# Resumen del Módulo 7: Google Cloud Computing Foundations Networking and Security
+
+## Temas Principales  
+- **Nubes Privadas Virtuales (VPCs)**:  
+  - Definición: Una VPC es un modelo privado, individual y seguro alojado dentro de una nube pública como Google Cloud.  
+  - Componentes: Se compone de subredes, configuradas con direcciones IP privadas (CIDR).  
+
+- **Arquitectura de Red de Google**:  
+  - Incluye regiones y puntos de presencia (PoP).  
+
+- **Productos y Herramientas de Redes de Google Cloud**:  
+  - Google Cloud VPC  
+  - Cloud Load Balancing  
+  - Cloud CDN  
+  - Cloud Interconnect  
+  - Cloud DNS  
+
+- **Redes de VPC Avanzadas**:  
+  - Uso de múltiples redes VPC con intercambio de tráfico de VPC y VPC compartida.  
+
+- **Opciones para Nubes Híbridas**:  
+  - Protocolo IPsec de VPN  
+  - Intercambio de tráfico (directo y por proveedores)  
+  - Interconexión dedicada  
+  - Interconexión de socio  
+
+- **Opciones de Balanceo de Cargas**:  
+  - Cloud Load Balancing  

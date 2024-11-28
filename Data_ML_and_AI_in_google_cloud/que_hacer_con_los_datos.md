@@ -56,9 +56,7 @@ Explorar servicios administrados en la nube para el procesamiento de macrodatos 
 ### **Conclusión:**
 Este módulo te preparará para comprender y utilizar servicios de procesamiento de Big Data en Google Cloud, aprovechando Dataproc, Dataflow y BigQuery para manejar y analizar grandes volúmenes de datos de manera eficiente.
 
-## **Introducción a los Servicios Administrados de Macrodatos en Google Cloud**
-
----
+## **Introducción a los Servicios Administrados de Big Data en Google Cloud**
 
 ### **¿Qué son los Macrodatos (Big Data)?**
 - **Definición:** Datos de gran volumen que superan la capacidad de las herramientas tradicionales de gestión de datos.

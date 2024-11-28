@@ -115,14 +115,14 @@ El aprendizaje automático requiere gestionar grandes cantidades de datos, elegi
 ---
 
 ### Desafíos del Desarrollo de IA  
-#### Desafíos principales:  
+### Desafíos principales:  
 - **Gestión de datos:** Manejar grandes volúmenes de información.  
 - **Selección del modelo:** Determinar el modelo correcto de AA.  
 - **Producción:** Necesidad de escalabilidad, supervisión, CI/CD.  
 
 **Gartner** señala que solo la mitad de los proyectos de AA superan la fase piloto debido a estos desafíos.
 
-#### Facilidad de uso:  
+### Facilidad de uso:  
 - Herramientas actuales requieren programación avanzada.  
 - Falta de un flujo de trabajo unificado complica la tarea de los científicos de datos.
 
@@ -131,7 +131,7 @@ El aprendizaje automático requiere gestionar grandes cantidades de datos, elegi
 ### Vertex AI: La Solución de Google  
 **Vertex AI** es una plataforma unificada que simplifica la creación, administración e implementación de modelos de AA a gran escala.  
 
-#### Flujo de trabajo en Vertex AI:  
+### Flujo de trabajo en Vertex AI:  
 1. **Preparación de datos:** Importar datos desde Cloud Storage, BigQuery o una máquina local.  
 2. **Preparación de atributos:** Crear y compartir atributos procesados.  
 3. **Entrenamiento:** Experimentar con modelos y ajustar hiperparámetros.  
@@ -236,3 +236,108 @@ AutoML admite cuatro tipos de datos y resuelve diferentes objetivos para cada un
 ### Aplicación Empresarial  
 - Combinar diferentes tipos de datos y objetivos para resolver problemas complejos.  
 - Identificar los mejores atributos en un conjunto de datos para optimizar modelos.  
+
+
+## Entrenamiento Personalizado
+
+**Entrenamiento Personalizado con Vertex AI Workbench:**  
+  Permite programar tu propio entorno de aprendizaje automático, controlando todo el proceso desde la preparación de datos hasta la implementación de modelos.
+
+- **Vertex AI Workbench:**  
+  Es un entorno de desarrollo integral para el flujo de trabajo de ciencia de datos, que cubre:
+  - Exploración
+  - Entrenamiento
+  - Implementación de modelos de AA con código
+
+- **Selección del Entorno de Entrenamiento:**  
+  Antes de programar, es esencial decidir el entorno adecuado. Hay dos opciones principales:
+
+  1. **Contenedor Precompilado:**  
+     - Equivale a una cocina equipada con gabinetes, electrodomésticos y utensilios.  
+     - Ideal si el entrenamiento requiere plataformas como TensorFlow, PyTorch, scikit-learn o XGBoost, junto con código Python.
+
+  2. **Contenedor Personalizado:**  
+     - Similar a una cocina vacía donde defines todas las herramientas necesarias.  
+     - Proporciona máxima flexibilidad para especificar dependencias y bibliotecas según las necesidades del proyecto.
+
+## APIs Creadas Previamente
+
+### **AutoML vs. APIs Precompiladas**
+- **AutoML:**  
+  Requiere un conjunto de datos de entrenamiento etiquetado para crear modelos personalizados.  
+- **APIs de AA Precompiladas:**  
+  Ideal si no se dispone de datos específicos del dominio. Son servicios listos para usar, que permiten evitar la complejidad y costos de crear modelos propios.
+
+### **Beneficios de las APIs Precompiladas:**
+- Reducen la necesidad de cientos de miles de registros para entrenar un modelo.
+- Ahorran tiempo al evitar la selección y entrenamiento de datos.
+- Permiten crear aplicaciones rápidamente utilizando componentes básicos preentrenados.
+
+### **Principales APIs de AA:**
+1. **API de Speech-to-Text:**  
+   Convierte audio en texto para procesar datos.
+2. **API de Cloud Natural Language:**  
+   Reconoce entidades y opiniones en el texto.
+3. **API de Cloud Translation:**  
+   Traduce texto entre idiomas.
+4. **API de Text-to-Speech:**  
+   Convierte texto en voz de alta calidad.
+5. **API de Vision:**  
+   Reconoce contenido en imágenes estáticas.
+6. **API de Video Intelligence:**  
+   Identifica movimientos y acciones en videos.
+
+### **Datos de Entrenamiento de Google:**
+- Las APIs se entrenan con datos masivos:  
+  - **Vision:** Conjunto de datos de imágenes de Google.  
+  - **Speech-to-Text:** Subtítulos de YouTube.  
+  - **Translation:** Datos de Google Traductor.
+
+### **Ejemplo Real: Bloomberg y la API de Cloud Translation**
+- **Desafío:** Traducir noticias financieras en tiempo real para clientes globales.  
+- **Solución:** Integrar la API de Cloud Translation.  
+  - Proceso fácil y rápido de implementar.  
+  - Traducciones en tiempo real para noticias de mercados financieros.  
+  - Funciona en 40 idiomas y 170 países.
+
+**Resultado:**  
+Clientes de Bloomberg pueden acceder a noticias relevantes en su idioma preferido, facilitando la toma de decisiones rápidas y precisas en mercados globales.
+
+## Lab API de Cloud Natural Language: Qwik Start
+
+### **Exploración de APIs en Labs Finales:**
+En los últimos tres labs del curso, se explorarán algunas de las APIs preentrenadas de Google Cloud, comenzando con la **API de Cloud Natural Language**.
+
+### **Lab: "Cloud Natural Language API: Qwik Start"**
+- **Objetivo:**  
+  Utilizar el método `analyze-entities` para extraer entidades (como personas, lugares y eventos) de un fragmento de texto.
+
+### **Actividades del Lab:**
+1. **Crear una clave de API.**
+2. **Realizar una solicitud para analizar entidades del texto.**
+
+Este ejercicio práctico te permitirá interactuar directamente con la API, comprender su funcionamiento y aplicarla en escenarios reales de análisis de texto.
+
+## Lab API de Google Cloud Speech: Qwik Start
+
+#### **Exploración de la API de Speech-to-Text:**
+En el lab **"Google Cloud Speech API: Qwik Start"**, trabajarás con un archivo de audio pregrabado para interactuar con la API de Speech-to-Text.
+
+#### **Actividades del Lab:**
+1. **Crear una clave de API.**
+2. **Construir una solicitud para la API de Speech-to-Text.**
+3. **Llamar a la API de Speech-to-Text para convertir el audio en texto.**
+
+Este lab te guiará a través del proceso de configuración y ejecución de la API, facilitando la transcripción automática de audio en texto.
+
+## Lab API de Video Intelligence Qwik Start
+
+### **Exploración de la API de Video Intelligence:**
+En el lab **"Video Intelligence: Qwik Start"**, aprenderás a crear una solicitud de anotación de video utilizando la API de Video Intelligence.
+
+### **Actividades del Lab:**
+1. **Habilitar la API de Video Intelligence.**
+2. **Configurar la autorización.**
+3. **Realizar una solicitud de anotación de video.**
+
+Este lab te permitirá explorar cómo la API de Video Intelligence analiza videos para identificar movimientos, objetos y acciones automáticamente.
