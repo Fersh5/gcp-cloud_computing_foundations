@@ -4,7 +4,7 @@
 ---
 
 ### **Objetivo del Módulo:**
-Explorar el aprendizaje automático (**AA**) y su aplicación utilizando las herramientas de Google Cloud, como **Vertex AI** y las **APIs de Google AI**.
+Explorar el aprendizaje automático (**ML**) y su aplicación utilizando las herramientas de Google Cloud, como **Vertex AI** y las **APIs de Google AI**.
 
 ---
 
@@ -341,3 +341,37 @@ En el lab **"Video Intelligence: Qwik Start"**, aprenderás a crear una solicitu
 3. **Realizar una solicitud de anotación de video.**
 
 Este lab te permitirá explorar cómo la API de Video Intelligence analiza videos para identificar movimientos, objetos y acciones automáticamente.
+
+## Cuestionario
+
+1. ¿Cuál de estas opciones es una solución sin código que le permite crear sus propios modelos de aprendizaje automático en Vertex AI con una interfaz interactiva? 
+   - ❌ BigQuery ML  
+   - **✅ AutoML**
+   - ❌ Entrenamiento personalizado  
+   - ❌ APIs creadas previamente  
+
+2. ¿Qué API de aprendizaje automático de Google se puede utilizar con el fin de convertir audio a texto para el procesamiento de datos?
+   - ❌ API de Video Intelligence  
+   - **✅ API de Speech-to-Text**
+   - ❌ API de Vision  
+   - ❌ API de Cloud Natural Language  
+
+3. ¿Cuál es el nombre de la plataforma de IA unificada de Google que reúne todos los componentes del ecosistema y del flujo de trabajo del aprendizaje automático? 
+   - **✅ Vertex AI**
+   - ❌ Cloud AI  
+   - ❌ AutoML  
+   - ❌ TensorFlow  
+
+## Resumen del Módulo 10: Google Cloud Computing Foundations
+
+- **Exploración del Aprendizaje Automático (ML)**  
+  - Definición del aprendizaje automático.  
+  - Terminología clave y propuesta de valor del AA.  
+
+- **Vertex AI**  
+  - Presentación de la plataforma unificada de IA de Google.  
+  - Opciones disponibles con **AutoML**: una solución sin código para crear modelos de AA.  
+  - **Entrenamiento personalizado**: permite programar y controlar todo el proceso de desarrollo del AA, desde la preparación de datos hasta la implementación del modelo.  
+
+- **APIs de Google para ML**  
+  - Exploración de APIs preentrenadas que facilitan la implementación de modelos de aprendizaje automático.  

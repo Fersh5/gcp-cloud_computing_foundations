@@ -23,5 +23,3 @@ Este curso está diseñado para personas sin experiencia previa en computación 
 - Existe una API para eso
 - No se puede proteger la nube ¿cierto?
 
-
-

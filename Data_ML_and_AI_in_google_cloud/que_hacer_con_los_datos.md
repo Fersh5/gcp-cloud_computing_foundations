@@ -433,3 +433,53 @@ Aprender a utilizar **Dataprep** para manipular e interpretar un conjunto de dat
 
 ### **Resultado Esperado:**
 Al final del lab, tendrás un conjunto de datos limpio y transformado, listo para su análisis o para ser utilizado en otros servicios de Google Cloud, como **BigQuery** o **Vertex AI**.
+
+
+
+## **Cuestionario**
+
+### 1. ¿Cuál de las siguientes opciones no es una función de BigQuery?  
+
+- ❌ BigQuery ofrece almacenamiento y análisis de datos.  
+- ❌ BigQuery ofrece un modelo de precios flexible de pago por uso.  
+- **✅ BigQuery se ejecuta en su servidor local.**
+- ❌ BigQuery proporciona funciones de aprendizaje automático integradas.  
+
+---
+
+### 2. ¿Cuál de las siguientes opciones es un servicio administrado de Spark y Hadoop con el que puede aprovechar herramientas de datos de código abierto para procesamientos por lotes, consultas, transmisiones y aprendizaje automático?  
+
+- ❌ Pub/Sub  
+- ❌ Dataflow  
+- **✅ Dataproc**
+- ❌ BigQuery  
+
+---
+
+### 3. ¿Cuál de los servicios administrados de macrodatos de Google Cloud está optimizado para el procesamiento por lotes a gran escala o el procesamiento de transmisión prolongado de datos estructurados y no estructurados?  
+- ❌ Dataproc  
+- ❌ Pub/Sub  
+- **✅ Dataflow**
+- ❌ BigQuery  
+
+---
+
+### 4. Puede utilizar tres patrones básicos para cargar datos a BigQuery. ¿Cuál de ellos usa instrucciones de SQL para insertar filas en una tabla existente o escribir los resultados de una consulta en una tabla?  
+
+- ❌ Transmisión  
+- ❌ Carga por lotes  
+- **✅ Datos generados**
+
+## Resumen del Módulo 9: Google Cloud Computing Foundations
+
+1. **Servicios administrados de macrodatos en la nube**  
+   Se exploraron diferentes servicios administrados para trabajar con grandes volúmenes de datos en Google Cloud.
+
+2. **Dataproc**  
+   Se revisó cómo ejecutar tecnologías como **Hadoop** y **Spark** como servicios administrados en la nube.
+
+3. **Dataflow**  
+   Se aprendió a crear **canalizaciones de ETL** utilizando Dataflow como servicio administrado.
+
+4. **BigQuery**  
+   Se examinó BigQuery, un **almacén de datos** y motor de estadísticas administrado por Google Cloud.
