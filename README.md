@@ -1,5 +1,5 @@
 <h1>
-    <img src="https://www.tigabytes.com/wp-content/uploads/2023/11/GCP-Mi.png" alt="gcp" width="25" />
+    <img src="https://cdn.prod.website-files.com/5f9b0c64d9432ea1ae26110c/666da1078e8c133b2f14277e_logo%20gcp-p-500.png" alt="gcp" width="25" />
     GCP - Cloud Computing Foundatios
 </h1>
 
