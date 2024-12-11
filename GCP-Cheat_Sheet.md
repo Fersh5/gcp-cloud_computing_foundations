@@ -10,7 +10,7 @@
 |Ver la configuración de la región del proyecto|gcloud config get-value compute/region| |
 |Ver la configuración de la zona del proyecto|gcloud config get-value compute/zone| |
 |Crear una instancia de VM|gcloud compute instances create [name_vm] --machine-type [type-machine] --zone=[zone]
-|Crear una instancia de VM, aplica etiquetas y script de configuracion inicial|  gcloud compute instances create www1 \ <br> --zone=Zone \ <br>--tags=network-lb-tag \ <br>--machine-type=e2-small \ <br>--image-family=debian-11 \ <br>--image-project=debian-cloud \ <br>--metadata=startup-script='#!/bin/bash<br>&nbsp;&nbsp;&nbsp;&nbsp;apt-get update<br>&nbsp;&nbsp;&nbsp;&nbsp;apt-get install apache2 -y<br>&nbsp;&nbsp;&nbsp;&nbsp;service apache2 restart<br>&nbsp;&nbsp;&nbsp;&nbsp;echo "\<h3>Web Server: www1\</h3>" \| tee /var/www/html/index.html'|  |
+|Crear una instancia de VM, aplica etiquetas y script de configuración inicial|  gcloud compute instances create www1 \ <br> --zone=Zone \ <br>--tags=network-lb-tag \ <br>--machine-type=e2-small \ <br>--image-family=debian-11 \ <br>--image-project=debian-cloud \ <br>--metadata=startup-script='#!/bin/bash<br>&nbsp;&nbsp;&nbsp;&nbsp;apt-get update<br>&nbsp;&nbsp;&nbsp;&nbsp;apt-get install apache2 -y<br>&nbsp;&nbsp;&nbsp;&nbsp;service apache2 restart<br>&nbsp;&nbsp;&nbsp;&nbsp;echo "\<h3>Web Server: www1\</h3>" \| tee /var/www/html/index.html'|  |
 |Crea una regla de firewall para permitir la entrada de trafico externo|gcloud compute firewall-rules create www-firewall-network-lb \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--target-tags network-lb-tag <br>&nbsp;&nbsp;&nbsp;&nbsp;--allow tcp:80|
 |Ayuda del comando create|gcloud compute instances create --help| |
 |Conectarte a tu instancia de VM|gcloud compute ssh [name_vm] --zone=[zone]|
@@ -50,4 +50,3 @@
 |Crea un mapa de URLs para enrutar las solicitudes entrantes al servicio de backend predeterminado|gcloud compute url-maps create web-map-http \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--default-service web-backend-service|
 |Crea un Proxy HTTP de destino para enrutar las solicitudes a tu mapa de URLs|gcloud compute target-http-proxies create http-lb-proxy \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--url-map web-map-http|
 |Crea una regla de reenvío global para enrutar las solicitudes entrantes al proxy|gcloud compute forwarding-rules create http-content-rule \ <br>&nbsp;&nbsp;&nbsp;&nbsp; --address=lb-ipv4-1\ <br>&nbsp;&nbsp;&nbsp;&nbsp; --global \ <br>&nbsp;&nbsp;&nbsp;&nbsp; --target-http-proxy=http-lb-proxy \ <br>&nbsp;&nbsp;&nbsp;&nbsp; --ports=80|
-
