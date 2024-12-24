@@ -4,7 +4,7 @@
 |---------------------------|-----------------------------------|
 |Ayuda de gcloud|gcloud -h| |
 |Ver ID del proyecto|gcloud config get-value project| |
-|Ver detalles del proyecto|gcloud compute project-info describe --project  $(gcloud config get-value rpoject)| |
+|Ver detalles del proyecto|gcloud compute project-info describe --project  $(gcloud config get-value project)| |
 |Establece la región del proyecto|gcloud config set compute/region [region]|
 |Establece la zona del proyecto|gcloud config set compute/zone [zone]|
 |Ver la configuración de la región del proyecto|gcloud config get-value compute/region| |
