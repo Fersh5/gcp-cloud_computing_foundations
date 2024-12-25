@@ -50,3 +50,17 @@
 |Crea un mapa de URLs para enrutar las solicitudes entrantes al servicio de backend predeterminado|gcloud compute url-maps create web-map-http \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--default-service web-backend-service|
 |Crea un Proxy HTTP de destino para enrutar las solicitudes a tu mapa de URLs|gcloud compute target-http-proxies create http-lb-proxy \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--url-map web-map-http|
 |Crea una regla de reenvío global para enrutar las solicitudes entrantes al proxy|gcloud compute forwarding-rules create http-content-rule \ <br>&nbsp;&nbsp;&nbsp;&nbsp; --address=lb-ipv4-1\ <br>&nbsp;&nbsp;&nbsp;&nbsp; --global \ <br>&nbsp;&nbsp;&nbsp;&nbsp; --target-http-proxy=http-lb-proxy \ <br>&nbsp;&nbsp;&nbsp;&nbsp; --ports=80|
+
+---
+## Buckets
+| Action                    | Command                           |
+|---------------------------|-----------------------------------|
+|Crea un bucket |gsutil mb gs://my_bucket_name|
+|Copia un archivo de tu instancia a tu bucket | gsutil cp name_file.txt gs://my_bucket_name|
+|Descarga un objeto desde el bucket | gsutil cp -r gs://my_bucket_name/name_file.txt .|
+|Crea una carpeta y copia un archivo en ella | gsutil cp gs://my_bucket_name/name_file.txt gs://my_bucket_name/new-folder/ |
+|Muestra el contenido de un bucket o carpeta | gsutil ls gs://my_bucket_name |
+|Muestra los detalles de un objeto| gsutil ls -l gs://my_bucket_name/name_file.txt|
+|Otorga acceso publico a un objeto | gsutil acl ch -u AllUsers:R gs://my_bucket_name/name_file.txt |
+|Quita el acceso publico a un objeto | gsutil acl ch -d AllUsers gs://my_bucket_name/name_file.txt |
+|Borra un objeto | gsutil rm gs://my_bucket_name/name_file.txt |
