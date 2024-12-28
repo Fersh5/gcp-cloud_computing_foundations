@@ -64,3 +64,33 @@
 |Otorga acceso publico a un objeto | gsutil acl ch -u AllUsers:R gs://my_bucket_name/name_file.txt |
 |Quita el acceso publico a un objeto | gsutil acl ch -d AllUsers gs://my_bucket_name/name_file.txt |
 |Borra un objeto | gsutil rm gs://my_bucket_name/name_file.txt |
+
+
+---
+## Cloud Functions
+| Action                    | Command                           |
+|---------------------------|-----------------------------------|
+|Establece una region predeterminada | gcloud config set run/region us-west1 |
+|Crea un directorio para el codigo de la funcion | mkdir gcf_hello_world && cd $_ |
+|Crea un archivo "index.js" y abrelo para editarlo| nano index.js |
+|Ejemplo de código que se ejecutará| const functions = require('@google-cloud/functions-framework');<br><br>// Register a CloudEvent callback with the Functions Framework that will <br>// be executed when the Pub/Sub trigger topic receives a message. <br>functions.cloudEvent('helloPubSub', cloudEvent => { <br>&nbsp;&nbsp;&nbsp;&nbsp; // The Pub/Sub message is passed as the CloudEvent's data payload.<br>&nbsp;&nbsp;&nbsp;&nbsp;const base64name = cloudEvent.data.message.data; <br><br>&nbsp;&nbsp;&nbsp;&nbsp;const name = base64name <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;? Buffer.from(base64name, 'base64').toString() <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 'World';<br>&nbsp;&nbsp;&nbsp;&nbsp; console.log(\`Hello, ${name}!\`);<br>});|
+|Ejemplo de 'package.json'|{ <br>&nbsp;&nbsp;&nbsp;&nbsp;"name": "gcf_hello_world",<br>&nbsp;&nbsp;&nbsp;&nbsp;"version": "1.0.0",<br>&nbsp;&nbsp;&nbsp;&nbsp;"main": "index.js",<br>&nbsp;&nbsp;&nbsp;&nbsp;"scripts": {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"start": "node index.js",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"test": "echo \"Error: no test specified\" && exit 1" <br>&nbsp;&nbsp;&nbsp;&nbsp;}, <br>&nbsp;&nbsp;&nbsp;&nbsp;"dependencies": { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"@google-cloud/functions-framework": "^3.0.0" <br>&nbsp;&nbsp;&nbsp;&nbsp;} <br>}|
+|Ejemplo de Pub/Sub | gcloud functions deploy nodejs-pubsub-function \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--gen2 \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--runtime=nodejs20 \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--region=REGION \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--source=. \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--entry-point=helloPubSub \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--trigger-topic cf-demo \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--stage-bucket PROJECT_ID-bucket \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--service-account cloudfunctionsa@PROJECT_ID.iam.gserviceaccount.com \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--allow-unauthenticated |
+|Verifica el estado de la funcion| gcloud functions describe nodejs-pubsub-function \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--region=us-west1 |
+|Invoca a PubSub | gcloud pubsub topics publish cf-demo --message="Cloud Function Gen2" |
+|Consulta los registros | gcloud functions logs read nodejs-pubsub-function \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--region=REGION  |
+
+---
+## PubSub
+| Action                    | Command                           |
+|---------------------------|-----------------------------------|
+|Crea un topic| gcloud pubsub topics create myTopic |
+|Lista los topics que has creado| gcloud pubsub topics list |
+|Borra un topic| gcloud pubsub topics delete Test1|
+|Crea una subscripcion a un topic | gcloud pubsub subscriptions create --topic myTopic mySubscription |
+|Muestra las subscripciones a un topic| gcloud pubsub topics list-subscriptions myTopic|
+|Borra una subscripcion a un topic| gcloud pubsub subscriptions delete Test1|
+|Publica un mensaje en un topic| gcloud pubsub topics publish myTopic --message "Hello" |
+|Ve un mensaje publicado | gcloud pubsub subscriptions pull mySubscription --auto-ack |
+|Establece un numero maximo de mensajes a obtener| gcloud pubsub subscriptions pull mySubscription --auto-ack --limit=3|
+
