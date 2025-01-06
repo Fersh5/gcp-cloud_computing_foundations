@@ -94,3 +94,71 @@
 |Ve un mensaje publicado | gcloud pubsub subscriptions pull mySubscription --auto-ack |
 |Establece un numero maximo de mensajes a obtener| gcloud pubsub subscriptions pull mySubscription --auto-ack --limit=3|
 
+## VPC
+
+| Action                    | Command                           |
+|---------------------------|-----------------------------------|
+|Crea una red VPC| gcloud compute networks create privatenet --subnet-mode=custom|
+|Crea una Subred| gcloud compute networks subnets create privatesubnet-1 --network=privatenet --region=Region_1 --range=172.16.0.0/24|
+|Lista las VPC disponibles| gcloud compute networks list|
+|Lista las subredes de VPC disponibles ordenadas por red | gcloud compute networks subnets list --sort-by=NETWORK |
+|Crea una regla de firewall para permitir el trafico entrante de protocolos icmp, ssh y rdp | gcloud compute firewall-rules create privatenet-allow-icmp-ssh-rdp --direction=INGRESS --priority=1000 --network=privatenet --action=ALLOW --rules=icmp,tcp:22,tcp:3389 --source-ranges=0.0.0.0/0 |
+|Lista todas las reglas de firewall| gcloud compute firewall-rules list --sort-by=NETWORK |
+|Crea una instancia de VM perteneciente a una subred | gcloud compute instances create privatenet-vm-1 --zone= --machine-type=e2-micro --subnet=privatesubnet-1 |
+|Lista todas las instancias de VM ordenadas por Zona| gcloud compute instances list --sort-by=ZONE |
+|Intenta comunicarte a alguna instancia mediante la direccion IP|ping -c 3 [IP]|
+|Dentro de una instancia: lista las interfaces de red | sudo ifconfig|
+|Lista las rutas de una instancia| ip route|
+|Instalar Nginx | sudo apt-get install nginx-light -y|
+|Crear una regla de firewall permitiendo el trafico de entrada a los tags definidos y por protocolos tcp, icmp|gcloud compute firewall-rules create allow-http-web-server --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:80 --source-ranges=0.0.0.0/0 --target-tags=web-server|
+|Lista las reglas de firewall disponibles|gcloud compute firewall-rules list|
+|Borra una regla de firewall|gcloud compute firewall-rules delete allow-http-web-server|
+|Autoriza una VM con una credencial|gcloud auth activate-service-account --key-file credentials.json|
+
+
+## Firewall y reglas de acceso
+
+| Action                    | Command                           |
+|---------------------------|-----------------------------------|
+|Crea una regla de firewall para permitir el trafico tcp| gcloud compute firewall-rules create default-allow-http --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:80 --source-ranges=0.0.0.0/0 --target-tags=http-server|
+
+>Las verificaciones de estado determinan qué instancias de un balanceador de cargas pueden recibir conexiones nuevas. 
+En el balanceo de cargas de aplicaciones, los sondeos de verificación de estado de tus instancias de balanceo de cargas 
+provienen de las direcciones dentro de los rangos 130.211.0.0/22 y 35.191.0.0/16. 
+Tus reglas de firewall deben permitir esas conexiones.
+
+| Action                    | Command                           |
+|---------------------------|-----------------------------------|
+|Crea una regla de firewall dentro de los rangos|gcloud compute firewall-rules create default-allow-health-check --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=PROTOCOL:PORT,... --source-ranges=130.211.0.0/22,35.191.0.0/16 --target-tags=http-server|
+
+>Las verificaciones de estado determinan qué instancias de un balanceador de cargas pueden recibir conexiones nuevas. 
+En el balanceo de cargas interno, los sondeos de verificación de estado de tus instancias de balanceo de cargas provienen 
+de las direcciones dentro de los rangos 130.211.0.0/22 y 35.191.0.0/16. Tus reglas de firewall deben permitir esas conexiones.
+
+| Action                    | Command                           |
+|---------------------------|-----------------------------------|
+|Crea la regla de firewall dentro de esos rangos para el verificador de estado| gcloud compute firewall-rules create app-allow-health-check --direction=INGRESS --priority=1000 --network=my-internal-app --action=ALLOW --rules=PROTOCOL:PORT,... --source-ranges=130.211.0.0/22,35.191.0.0/16 --target-tags=lb-backend|
+
+## Vertex AI, Dataprep, Dataflow, BigQuery, Dataproc
+
+| Action                    | Command                           |
+|---------------------------|-----------------------------------|
+|Habilitar los servicios que ocupa vertex AI|gcloud services enable \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;compute.googleapis.com \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;iam.googleapis.com \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;iamcredentials.googleapis.com \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;monitoring.googleapis.com \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;logging.googleapis.com \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;notebooks.googleapis.com \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;aiplatform.googleapis.com \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;bigquery.googleapis.com \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;artifactregistry.googleapis.com \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;cloudbuild.googleapis.com \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;container.googleapis.com |
+|Inicializa Cloud Dataprep |gcloud beta services identity create --service=dataprep.googleapis.com|
+|Crea un conjunto de datos | bq mk taxirides|
+|Crea una instancia de una tabla de de BigQuery|bq mk \ <br>--time_partitioning_field timestamp \ <br>--schema ride_id:string,point_idx:integer,latitude:float,longitude:float,\ <br>timestamp:timestamp,meter_reading:float,meter_increment:float,ride_status:string,\ <br>passenger_count:integer -t taxirides.realtime|
+|Implementa la plantilla de Dataflow|gcloud dataflow jobs run iotflow \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--gcs-location gs://dataflow-templates-us-east4/latest/PubSub_to_BigQuery \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--region us-east4 \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--worker-machine-type e2-medium \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--staging-location gs://qwiklabs-gcp-03-c6b2917c8e87/temp \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--parameters inputTopic=projects/pubsub-public-data/topics/taxirides-realtime,outputTableSpec=qwiklabs-gcp-03-c6b2917c8e87:taxirides.realtime|
+|Establece la region en dataproc|gcloud config set dataproc/region us-central1|
+|Obten project ID|PROJECT_ID=$(gcloud config get-value project) && gcloud config set project $PROJECT_ID|
+|Obten el numero del proyecto|PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')|
+|Añade el rol de administrador de almacenamiento a la cuenta de servicio|gcloud projects add-iam-policy-binding $PROJECT_ID \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--member=serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--role=roles/storage.admin|
+|Habilita el Acceso privado a Google en tu subred|gcloud compute networks subnets update default --region=us-central1  --enable-private-ip-google-access|
+|Crea un clúster llamado example-cluster con VMs e2-standard-4 y la configuración predeterminada de Cloud Dataproc|gcloud dataproc clusters create example-cluster --worker-boot-disk-size 500 --worker-machine-type=e2-standard-4 --master-machine-type=e2-standard-4|
+|Envia un trabajo de Spark de muestra que calcule un valor aproximado de pi|gcloud dataproc jobs submit spark --cluster example-cluster \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--class org.apache.spark.examples.SparkPi \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--jars file:///usr/lib/spark/examples/jars/spark-examples.jar -- 1000|
+|Cambiar la cantidad de trabajadores del clúster a cuatro|gcloud dataproc clusters update example-cluster --num-workers 4|
+|Reduce la cantidad de nodos trabajadores|gcloud dataproc clusters update example-cluster --num-workers 2|
+|Establece la variable de entorno con tu PROJECT_ID|export GOOGLE_CLOUD_PROJECT=$(gcloud config get-value core/project)|
+|Crea una cuenta de servicio a la API de Natural Language|gcloud iam service-accounts create my-natlang-sa \ <br>&nbsp;&nbsp;&nbsp;&nbsp;--display-name "my natural language service account"|
+|Crea las credenciales para acceder con tu cuenta de servicio nueva y guárdalas como un archivo JSON “~/key.json”|gcloud iam service-accounts keys create ~/key.json \ <BR>&nbsp;&nbsp;&nbsp;&nbsp;--iam-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com|
+|Establece la variable de entorno GOOGLE_APPLICATION_CREDENTIALS. La variable de entorno debe establecerse para el archivo JSON de credenciales con su ruta de acceso completa|export GOOGLE_APPLICATION_CREDENTIALS="/home/USER/key.json"|
+|Haz una solicitud de entidades|gcloud ml language analyze-entities --content="Michelangelo Caravaggio, Italian painter, is known for 'The Calling of Saint Matthew'." > result.json|
